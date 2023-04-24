@@ -1,0 +1,93 @@
+package com.ruoyi.stu.domain;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import com.ruoyi.common.core.annotation.Excel;
+import com.ruoyi.common.core.web.domain.BaseEntity;
+
+/**
+ * 学生信息对象 stu_stu
+ * 
+ * @author ruoyi
+ * @date 2023-04-18
+ */
+public class StuStu extends BaseEntity
+{
+    private static final long serialVersionUID = 1L;
+
+    /** 学号 */
+    private Integer Id;
+
+    /** 班级 */
+    @Excel(name = "班级")
+    private String StuClass;
+
+    /** 姓名 */
+    @Excel(name = "姓名")
+    private String StuName;
+
+    /** 性别 */
+    @Excel(name = "性别")
+    private String Sex;
+
+    /** 年龄 */
+    @Excel(name = "年龄")
+    private Integer Age;
+
+    public void setId(Integer Id) 
+    {
+        this.Id = Id;
+    }
+
+    public Integer getId() 
+    {
+        return Id;
+    }
+    public void setStuClass(String StuClass) 
+    {
+        this.StuClass = StuClass;
+    }
+
+    public String getStuClass() 
+    {
+        return StuClass;
+    }
+    public void setStuName(String StuName) 
+    {
+        this.StuName = StuName;
+    }
+
+    public String getStuName() 
+    {
+        return StuName;
+    }
+    public void setSex(String Sex) 
+    {
+        this.Sex = Sex;
+    }
+
+    public String getSex() 
+    {
+        return Sex;
+    }
+    public void setAge(Integer Age) 
+    {
+        this.Age = Age;
+    }
+
+    public Integer getAge() 
+    {
+        return Age;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
+            .append("Id", getId())
+            .append("StuClass", getStuClass())
+            .append("StuName", getStuName())
+            .append("Sex", getSex())
+            .append("Age", getAge())
+            .toString();
+    }
+}
