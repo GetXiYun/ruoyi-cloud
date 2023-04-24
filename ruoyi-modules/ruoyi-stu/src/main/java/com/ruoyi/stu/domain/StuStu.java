@@ -9,13 +9,13 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 学生信息对象 stu_stu
  * 
  * @author ruoyi
- * @date 2023-04-18
+ * @date 2023-04-24
  */
 public class StuStu extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 学号 */
+    /** 编号 */
     private Integer Id;
 
     /** 班级 */
@@ -25,6 +25,10 @@ public class StuStu extends BaseEntity
     /** 姓名 */
     @Excel(name = "姓名")
     private String StuName;
+
+    /** 学号 */
+    @Excel(name = "学号")
+    private Long StuId;
 
     /** 性别 */
     @Excel(name = "性别")
@@ -61,6 +65,15 @@ public class StuStu extends BaseEntity
     {
         return StuName;
     }
+    public void setStuId(Long StuId) 
+    {
+        this.StuId = StuId;
+    }
+
+    public Long getStuId() 
+    {
+        return StuId;
+    }
     public void setSex(String Sex) 
     {
         this.Sex = Sex;
@@ -86,6 +99,7 @@ public class StuStu extends BaseEntity
             .append("Id", getId())
             .append("StuClass", getStuClass())
             .append("StuName", getStuName())
+            .append("StuId", getStuId())
             .append("Sex", getSex())
             .append("Age", getAge())
             .toString();

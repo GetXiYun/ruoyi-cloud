@@ -17,6 +17,14 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="学号" prop="StuId">
+        <el-input
+          v-model="queryParams.StuId"
+          placeholder="请输入学号"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item label="性别" prop="Sex">
         <el-input
           v-model="queryParams.Sex"
@@ -87,9 +95,10 @@
 
     <el-table v-loading="loading" :data="stulistList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="学号" align="center" prop="Id" />
+      <el-table-column label="编号" align="center" prop="Id" />
       <el-table-column label="班级" align="center" prop="StuClass" />
       <el-table-column label="姓名" align="center" prop="StuName" />
+      <el-table-column label="学号" align="center" prop="StuId" />
       <el-table-column label="性别" align="center" prop="Sex" />
       <el-table-column label="年龄" align="center" prop="Age" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
@@ -128,6 +137,9 @@
         </el-form-item>
         <el-form-item label="姓名" prop="StuName">
           <el-input v-model="form.StuName" placeholder="请输入姓名" />
+        </el-form-item>
+        <el-form-item label="学号" prop="StuId">
+          <el-input v-model="form.StuId" placeholder="请输入学号" />
         </el-form-item>
         <el-form-item label="性别" prop="Sex">
           <el-input v-model="form.Sex" placeholder="请输入性别" />
@@ -175,6 +187,7 @@ export default {
         pageSize: 10,
         StuClass: null,
         StuName: null,
+        StuId: null,
         Sex: null,
         Age: null
       },
@@ -182,18 +195,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        StuClass: [
-          { required: true, message: "班级不能为空", trigger: "blur" }
-        ],
-        StuName: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
-        ],
-        Sex: [
-          { required: true, message: "性别不能为空", trigger: "blur" }
-        ],
-        Age: [
-          { required: true, message: "年龄不能为空", trigger: "blur" }
-        ]
       }
     };
   },
@@ -221,6 +222,7 @@ export default {
         Id: null,
         StuClass: null,
         StuName: null,
+        StuId: null,
         Sex: null,
         Age: null
       };

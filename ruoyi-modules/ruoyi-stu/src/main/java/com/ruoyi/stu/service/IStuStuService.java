@@ -7,7 +7,7 @@ import com.ruoyi.stu.domain.StuStu;
  * 学生信息Service接口
  * 
  * @author ruoyi
- * @date 2023-04-18
+ * @date 2023-04-24
  */
 public interface IStuStuService 
 {

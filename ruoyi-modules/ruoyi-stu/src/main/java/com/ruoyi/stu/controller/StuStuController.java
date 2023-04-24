@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 学生信息Controller
  * 
  * @author ruoyi
- * @date 2023-04-18
+ * @date 2023-04-24
  */
 @RestController
 @RequestMapping("/stulist")
@@ -69,6 +69,7 @@ public class StuStuController extends BaseController
     {
         return success(stuStuService.selectStuStuById(Id));
     }
+
     /**
      * 新增学生信息
      */
