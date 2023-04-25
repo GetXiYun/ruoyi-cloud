@@ -11,7 +11,7 @@ import com.ruoyi.stu.service.IStuStuService;
  * 学生信息Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-04-24
+ * @date 2023-04-25
  */
 @Service
 public class StuStuServiceImpl implements IStuStuService 
@@ -22,13 +22,13 @@ public class StuStuServiceImpl implements IStuStuService
     /**
      * 查询学生信息
      * 
-     * @param Id 学生信息主键
+     * @param id 学生信息主键
      * @return 学生信息
      */
     @Override
-    public StuStu selectStuStuById(Integer Id)
+    public StuStu selectStuStuById(Integer id)
     {
-        return stuStuMapper.selectStuStuById(Id);
+        return stuStuMapper.selectStuStuById(id);
     }
 
     /**
@@ -70,24 +70,24 @@ public class StuStuServiceImpl implements IStuStuService
     /**
      * 批量删除学生信息
      * 
-     * @param Ids 需要删除的学生信息主键
+     * @param ids 需要删除的学生信息主键
      * @return 结果
      */
     @Override
-    public int deleteStuStuByIds(Integer[] Ids)
+    public int deleteStuStuByIds(Integer[] ids)
     {
-        return stuStuMapper.deleteStuStuByIds(Ids);
+        return stuStuMapper.deleteStuStuByIds(ids);
     }
 
     /**
      * 删除学生信息信息
      * 
-     * @param Id 学生信息主键
+     * @param id 学生信息主键
      * @return 结果
      */
     @Override
-    public int deleteStuStuById(Integer Id)
+    public int deleteStuStuById(Integer id)
     {
-        return stuStuMapper.deleteStuStuById(Id);
+        return stuStuMapper.deleteStuStuById(id);
     }
 }

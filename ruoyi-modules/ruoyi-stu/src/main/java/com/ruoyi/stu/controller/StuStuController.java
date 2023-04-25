@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 学生信息Controller
  * 
  * @author ruoyi
- * @date 2023-04-24
+ * @date 2023-04-25
  */
 @RestController
 @RequestMapping("/stulist")
@@ -64,10 +64,10 @@ public class StuStuController extends BaseController
      * 获取学生信息详细信息
      */
     @RequiresPermissions("stu:stulist:query")
-    @GetMapping(value = "/{Id}")
-    public AjaxResult getInfo(@PathVariable("Id") Integer Id)
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Integer id)
     {
-        return success(stuStuService.selectStuStuById(Id));
+        return success(stuStuService.selectStuStuById(id));
     }
 
     /**
@@ -97,9 +97,9 @@ public class StuStuController extends BaseController
      */
     @RequiresPermissions("stu:stulist:remove")
     @Log(title = "学生信息", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{Ids}")
-    public AjaxResult remove(@PathVariable Integer[] Ids)
+	@DeleteMapping("/{ids}")
+    public AjaxResult remove(@PathVariable Integer[] ids)
     {
-        return toAjax(stuStuService.deleteStuStuByIds(Ids));
+        return toAjax(stuStuService.deleteStuStuByIds(ids));
     }
 }

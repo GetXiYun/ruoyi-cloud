@@ -10,9 +10,9 @@ export function listStulist(query) {
 }
 
 // 查询学生信息详细
-export function getStulist(Id) {
+export function getStulist(id) {
   return request({
-    url: '/stu/stulist/' + Id,
+    url: '/stu/stulist/' + id,
     method: 'get'
   })
 }
@@ -36,9 +36,9 @@ export function updateStulist(data) {
 }
 
 // 删除学生信息
-export function delStulist(Id) {
+export function delStulist(id) {
   return request({
-    url: '/stu/stulist/' + Id,
+    url: '/stu/stulist/' + id,
     method: 'delete'
   })
 }

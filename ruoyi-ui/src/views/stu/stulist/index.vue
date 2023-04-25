@@ -1,41 +1,41 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="班级" prop="StuClass">
+      <el-form-item label="班级" prop="stuClass">
         <el-input
-          v-model="queryParams.StuClass"
+          v-model="queryParams.stuClass"
           placeholder="请输入班级"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="姓名" prop="StuName">
+      <el-form-item label="姓名" prop="stuName">
         <el-input
-          v-model="queryParams.StuName"
+          v-model="queryParams.stuName"
           placeholder="请输入姓名"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="学号" prop="StuId">
+      <el-form-item label="学号" prop="stuId">
         <el-input
-          v-model="queryParams.StuId"
+          v-model="queryParams.stuId"
           placeholder="请输入学号"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="性别" prop="Sex">
+      <el-form-item label="性别" prop="sex">
         <el-input
-          v-model="queryParams.Sex"
+          v-model="queryParams.sex"
           placeholder="请输入性别"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="年龄" prop="Age">
+      <el-form-item label="年龄" prop="age">
         <el-input
-          v-model="queryParams.Age"
+          v-model="queryParams.age"
           placeholder="请输入年龄"
           clearable
           @keyup.enter.native="handleQuery"
@@ -95,12 +95,12 @@
 
     <el-table v-loading="loading" :data="stulistList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="编号" align="center" prop="Id" />
-      <el-table-column label="班级" align="center" prop="StuClass" />
-      <el-table-column label="姓名" align="center" prop="StuName" />
-      <el-table-column label="学号" align="center" prop="StuId" />
-      <el-table-column label="性别" align="center" prop="Sex" />
-      <el-table-column label="年龄" align="center" prop="Age" />
+      <el-table-column label="编号" align="center" prop="id" />
+      <el-table-column label="班级" align="center" prop="stuClass" />
+      <el-table-column label="姓名" align="center" prop="stuName" />
+      <el-table-column label="学号" align="center" prop="stuId" />
+      <el-table-column label="性别" align="center" prop="sex" />
+      <el-table-column label="年龄" align="center" prop="age" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -132,20 +132,20 @@
     <!-- 添加或修改学生信息对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="班级" prop="StuClass">
-          <el-input v-model="form.StuClass" placeholder="请输入班级" />
+        <el-form-item label="班级" prop="stuClass">
+          <el-input v-model="form.stuClass" placeholder="请输入班级" />
         </el-form-item>
-        <el-form-item label="姓名" prop="StuName">
-          <el-input v-model="form.StuName" placeholder="请输入姓名" />
+        <el-form-item label="姓名" prop="stuName">
+          <el-input v-model="form.stuName" placeholder="请输入姓名" />
         </el-form-item>
-        <el-form-item label="学号" prop="StuId">
-          <el-input v-model="form.StuId" placeholder="请输入学号" />
+        <el-form-item label="学号" prop="stuId">
+          <el-input v-model="form.stuId" placeholder="请输入学号" />
         </el-form-item>
-        <el-form-item label="性别" prop="Sex">
-          <el-input v-model="form.Sex" placeholder="请输入性别" />
+        <el-form-item label="性别" prop="sex">
+          <el-input v-model="form.sex" placeholder="请输入性别" />
         </el-form-item>
-        <el-form-item label="年龄" prop="Age">
-          <el-input v-model="form.Age" placeholder="请输入年龄" />
+        <el-form-item label="年龄" prop="age">
+          <el-input v-model="form.age" placeholder="请输入年龄" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -185,11 +185,11 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        StuClass: null,
-        StuName: null,
-        StuId: null,
-        Sex: null,
-        Age: null
+        stuClass: null,
+        stuName: null,
+        stuId: null,
+        sex: null,
+        age: null
       },
       // 表单参数
       form: {},
@@ -219,12 +219,12 @@ export default {
     // 表单重置
     reset() {
       this.form = {
-        Id: null,
-        StuClass: null,
-        StuName: null,
-        StuId: null,
-        Sex: null,
-        Age: null
+        id: null,
+        stuClass: null,
+        stuName: null,
+        stuId: null,
+        sex: null,
+        age: null
       };
       this.resetForm("form");
     },
@@ -240,7 +240,7 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.Id)
+      this.ids = selection.map(item => item.id)
       this.single = selection.length!==1
       this.multiple = !selection.length
     },
@@ -253,8 +253,8 @@ export default {
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const Id = row.Id || this.ids
-      getStulist(Id).then(response => {
+      const id = row.id || this.ids
+      getStulist(id).then(response => {
         this.form = response.data;
         this.open = true;
         this.title = "修改学生信息";
@@ -264,7 +264,7 @@ export default {
     submitForm() {
       this.$refs["form"].validate(valid => {
         if (valid) {
-          if (this.form.Id != null) {
+          if (this.form.id != null) {
             updateStulist(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
@@ -282,9 +282,9 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      const Ids = row.Id || this.ids;
-      this.$modal.confirm('是否确认删除学生信息编号为"' + Ids + '"的数据项？').then(function() {
-        return delStulist(Ids);
+      const ids = row.id || this.ids;
+      this.$modal.confirm('是否确认删除学生信息编号为"' + ids + '"的数据项？').then(function() {
+        return delStulist(ids);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");

@@ -7,17 +7,17 @@ import com.ruoyi.stu.domain.StuStu;
  * 学生信息Service接口
  * 
  * @author ruoyi
- * @date 2023-04-24
+ * @date 2023-04-25
  */
 public interface IStuStuService 
 {
     /**
      * 查询学生信息
      * 
-     * @param Id 学生信息主键
+     * @param id 学生信息主键
      * @return 学生信息
      */
-    public StuStu selectStuStuById(Integer Id);
+    public StuStu selectStuStuById(Integer id);
 
     /**
      * 查询学生信息列表
@@ -46,16 +46,16 @@ public interface IStuStuService
     /**
      * 批量删除学生信息
      * 
-     * @param Ids 需要删除的学生信息主键集合
+     * @param ids 需要删除的学生信息主键集合
      * @return 结果
      */
-    public int deleteStuStuByIds(Integer[] Ids);
+    public int deleteStuStuByIds(Integer[] ids);
 
     /**
      * 删除学生信息信息
      * 
-     * @param Id 学生信息主键
+     * @param id 学生信息主键
      * @return 结果
      */
-    public int deleteStuStuById(Integer Id);
+    public int deleteStuStuById(Integer id);
 }
