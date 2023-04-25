@@ -5,72 +5,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ruoyi.stu.mapper.StuStuMapper">
     
     <resultMap type="StuStu" id="StuStuResult">
-        <result property="Id"    column="Id"    />
-        <result property="StuClass"    column="StuClass"    />
-        <result property="StuName"    column="StuName"    />
-        <result property="StuId"    column="StuId"    />
-        <result property="Sex"    column="Sex"    />
-        <result property="Age"    column="Age"    />
+        <result property="id"    column="id"    />
+        <result property="stuClass"    column="stu_class"    />
+        <result property="stuName"    column="stu_name"    />
+        <result property="stuId"    column="stu_id"    />
+        <result property="sex"    column="sex"    />
+        <result property="age"    column="age"    />
     </resultMap>
 
     <sql id="selectStuStuVo">
-        select Id, StuClass, StuName, StuId, Sex, Age from stu_stu
+        select id, stu_class, stu_name, stu_id, sex, age from stu_stu
     </sql>
 
     <select id="selectStuStuList" parameterType="StuStu" resultMap="StuStuResult">
         <include refid="selectStuStuVo"/>
         <where>  
-            <if test="StuClass != null  and StuClass != ''"> and StuClass = #{StuClass}</if>
-            <if test="StuName != null  and StuName != ''"> and StuName like concat('%', #{StuName}, '%')</if>
-            <if test="StuId != null "> and StuId = #{StuId}</if>
-            <if test="Sex != null  and Sex != ''"> and Sex = #{Sex}</if>
-            <if test="Age != null "> and Age = #{Age}</if>
+            <if test="stuClass != null  and stuClass != ''"> and stu_class = #{stuClass}</if>
+            <if test="stuName != null  and stuName != ''"> and stu_name like concat('%', #{stuName}, '%')</if>
+            <if test="stuId != null "> and stu_id = #{stuId}</if>
+            <if test="sex != null  and sex != ''"> and sex = #{sex}</if>
+            <if test="age != null "> and age = #{age}</if>
         </where>
     </select>
     
     <select id="selectStuStuById" parameterType="Integer" resultMap="StuStuResult">
         <include refid="selectStuStuVo"/>
-        where Id = #{Id}
+        where id = #{id}
     </select>
         
-    <insert id="insertStuStu" parameterType="StuStu" useGeneratedKeys="true" keyProperty="Id">
+    <insert id="insertStuStu" parameterType="StuStu" useGeneratedKeys="true" keyProperty="id">
         insert into stu_stu
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="StuClass != null">StuClass,</if>
-            <if test="StuName != null">StuName,</if>
-            <if test="StuId != null">StuId,</if>
-            <if test="Sex != null">Sex,</if>
-            <if test="Age != null">Age,</if>
+            <if test="stuClass != null">stu_class,</if>
+            <if test="stuName != null">stu_name,</if>
+            <if test="stuId != null">stu_id,</if>
+            <if test="sex != null">sex,</if>
+            <if test="age != null">age,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="StuClass != null">#{StuClass},</if>
-            <if test="StuName != null">#{StuName},</if>
-            <if test="StuId != null">#{StuId},</if>
-            <if test="Sex != null">#{Sex},</if>
-            <if test="Age != null">#{Age},</if>
+            <if test="stuClass != null">#{stuClass},</if>
+            <if test="stuName != null">#{stuName},</if>
+            <if test="stuId != null">#{stuId},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="age != null">#{age},</if>
          </trim>
     </insert>
 
     <update id="updateStuStu" parameterType="StuStu">
         update stu_stu
         <trim prefix="SET" suffixOverrides=",">
-            <if test="StuClass != null">StuClass = #{StuClass},</if>
-            <if test="StuName != null">StuName = #{StuName},</if>
-            <if test="StuId != null">StuId = #{StuId},</if>
-            <if test="Sex != null">Sex = #{Sex},</if>
-            <if test="Age != null">Age = #{Age},</if>
+            <if test="stuClass != null">stu_class = #{stuClass},</if>
+            <if test="stuName != null">stu_name = #{stuName},</if>
+            <if test="stuId != null">stu_id = #{stuId},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
         </trim>
-        where Id = #{Id}
+        where id = #{id}
     </update>
 
     <delete id="deleteStuStuById" parameterType="Integer">
-        delete from stu_stu where Id = #{Id}
+        delete from stu_stu where id = #{id}
     </delete>
 
     <delete id="deleteStuStuByIds" parameterType="String">
-        delete from stu_stu where Id in 
-        <foreach item="Id" collection="array" open="(" separator="," close=")">
-            #{Id}
+        delete from stu_stu where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
         </foreach>
     </delete>
 </mapper>

@@ -1,0 +1,76 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--"http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.ruoyi.stu.mapper.StuStuMapper">-->
+<!--    -->
+<!--    <resultMap type="com.ruoyi.stu.domain.StuStu" id="StuStuResult"/>-->
+<!--&lt;!&ndash;        <result property="Id"    column="Id"    />&ndash;&gt;-->
+<!--&lt;!&ndash;        <result property="StuClass"    column="StuClass"    />&ndash;&gt;-->
+<!--&lt;!&ndash;        <result property="StuName"    column="StuName"    />&ndash;&gt;-->
+<!--&lt;!&ndash;        <result property="StuId"    column="StuId"    />&ndash;&gt;-->
+<!--&lt;!&ndash;        <result property="Sex"    column="Sex"    />&ndash;&gt;-->
+<!--&lt;!&ndash;        <result property="Age"    column="Age"    />&ndash;&gt;-->
+<!--&lt;!&ndash;    </resultMap>&ndash;&gt;-->
+
+<!--    <sql id="selectStuStuVo">-->
+<!--        select Id, StuClass, StuName, StuId, Sex, Age from stu_stu-->
+<!--    </sql>-->
+
+<!--    <select id="selectStuStuList" parameterType="com.ruoyi.stu.domain.StuStu" resultMap="StuStuResult">-->
+<!--        <include refid="selectStuStuVo"/>-->
+<!--        <where>  -->
+<!--            <if test="StuClass != null  and StuClass != ''"> and StuClass = #{StuClass}</if>-->
+<!--            <if test="StuName != null  and StuName != ''"> and StuName like concat('%', #{StuName}, '%')</if>-->
+<!--            <if test="StuId != null "> and StuId = #{StuId}</if>-->
+<!--            <if test="Sex != null  and Sex != ''"> and Sex = #{Sex}</if>-->
+<!--            <if test="Age != null "> and Age = #{Age}</if>-->
+<!--        </where>-->
+<!--    </select>-->
+<!--    -->
+<!--    <select id="selectStuStuById" parameterType="Integer" resultMap="StuStuResult">-->
+<!--        <include refid="selectStuStuVo"/>-->
+<!--        where Id = #{Id}-->
+<!--    </select>-->
+<!--        -->
+<!--    <insert id="insertStuStu" parameterType="com.ruoyi.stu.domain.StuStu" useGeneratedKeys="true" keyProperty="Id">-->
+<!--        insert into stu_stu-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="StuClass != null">StuClass,</if>-->
+<!--            <if test="StuName != null">StuName,</if>-->
+<!--            <if test="StuId != null">StuId,</if>-->
+<!--            <if test="Sex != null">Sex,</if>-->
+<!--            <if test="Age != null">Age,</if>-->
+<!--         </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="StuClass != null">#{StuClass},</if>-->
+<!--            <if test="StuName != null">#{StuName},</if>-->
+<!--            <if test="StuId != null">#{StuId},</if>-->
+<!--            <if test="Sex != null">#{Sex},</if>-->
+<!--            <if test="Age != null">#{Age},</if>-->
+<!--         </trim>-->
+<!--    </insert>-->
+
+<!--    <update id="updateStuStu" parameterType="com.ruoyi.stu.domain.StuStu">-->
+<!--        update stu_stu-->
+<!--        <trim prefix="SET" suffixOverrides=",">-->
+<!--            <if test="StuClass != null">StuClass = #{StuClass},</if>-->
+<!--            <if test="StuName != null">StuName = #{StuName},</if>-->
+<!--            <if test="StuId != null">StuId = #{StuId},</if>-->
+<!--            <if test="Sex != null">Sex = #{Sex},</if>-->
+<!--            <if test="Age != null">Age = #{Age},</if>-->
+<!--        </trim>-->
+<!--        where Id = #{Id}-->
+<!--    </update>-->
+
+<!--    <delete id="deleteStuStuById" parameterType="Integer">-->
+<!--        delete from stu_stu where Id = #{Id}-->
+<!--    </delete>-->
+
+<!--    <delete id="deleteStuStuByIds" parameterType="String">-->
+<!--        delete from stu_stu where Id in -->
+<!--        <foreach item="Id" collection="array" open="(" separator="," close=")">-->
+<!--            #{Id}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+<!--</mapper>-->
